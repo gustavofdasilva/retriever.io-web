@@ -25,9 +25,12 @@ export default {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background: var(--surface-950);
+        background: color-mix(in srgb, var(--surface-950) 80%, transparent);
         width: 100%;
         padding: .8em 1.2em;
+        position: fixed;
+        z-index: 100;
+        backdrop-filter: blur(10px);
     }
 
     h1 {
