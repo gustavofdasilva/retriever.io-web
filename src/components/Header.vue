@@ -5,10 +5,13 @@
             <h1 class="font-bold">Retriever.io</h1>
         </div>
         <div class="buttons">
-            <Button label="Features" variant="text"  severity="secondary" ></Button>
-            <Button label="How it works" variant="text"  severity="secondary" ></Button>
+            <Button @click="navigateTo('featuresRef')" label="Features" variant="text"  severity="secondary" ></Button>
+            <Button @click="navigateTo('howItWorksRef')" label="How it works" variant="text"  severity="secondary" ></Button>
             <Button label="About" variant="text" severity="secondary" ></Button>
             <Button label="Download" icon="pi pi-download" ></Button>
+            
+            <a class="hidden" href="#features" ref="featuresRef" >ref</a>
+            <a class="hidden" href="#how-it-works" ref="howItWorksRef" >ref</a>
         </div>
     </nav>
 </template>
@@ -17,6 +20,11 @@ import Button from 'primevue/button';
 export default {
     components: {
         Button
+    },
+    methods: {
+        navigateTo(ref) {
+            this.$refs[ref].click();
+        }
     }
 }
 </script>

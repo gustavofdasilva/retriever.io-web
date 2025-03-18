@@ -3,35 +3,45 @@
         <section>
             <div>
               <p>Retriever.io</p>
-              <p>A powerful desktop application for downloading multiple videos simultaneously from a wide variety of websites.</p>
-              <a href="#"><span class="pi pi-github"></span></a>
-              <a href="#"><span class="pi pi-twitter"></span></a>
-              <a href="#"><span class="pi pi-instagram"></span></a>
+              <p class="text-[var(--surface-600)] w-[80%] mb-3">A powerful desktop application for downloading multiple videos simultaneously from a wide variety of websites.</p>
+              <a href="#" class="me-2"><span class="pi pi-github"></span></a>
+              <a href="#" class="me-2"><span class="pi pi-twitter"></span></a>
+              <a href="#" class="me-2"><span class="pi pi-instagram"></span></a>
             </div>
-            <div>
+            <div class="topics" >
               <ul>
                   <li>Resources</li>
-                  <li>Installation Guide</li>
-                  <li>Tutorials</li>
-                  <li>Versions</li>
+                  <a href="">
+                      <li>Installation Guide</li>
+                  </a>
+                  <a href="">
+                      <li>Tutorials</li>
+                  </a>
+                  <a href="">
+                      <li>Versions</li>
+                  </a>
               </ul>
             </div>
-            <div>
+            <div class="topics">
               <ul>
-                  <li>Legal</li>
-                  <li>Terms of Use</li>
-                  <li>License</li>
+                    <li>Legal</li>
+                  <a href="">
+                      <li>Terms of Use</li>
+                  </a>
+                  <a href="">
+                      <li>License</li>
+                  </a>
               </ul>
             </div>
         </section>
         <section>
             <div>
-                <a href="#">Retriever.io</a>
-                <p>Retriver.io is not affiliated with yt-dlp. It is a external tool that depends of yt-dlp to run</p>
+                <a href="https://github.com/gustavofdasilva/retriever.io" target="_blank" >Retriever.io</a>
+                <p  class="text-[var(--surface-600)] w-[80%]" >Retriver.io is not affiliated with yt-dlp. It is a external tool that depends of yt-dlp to run</p>
             </div>
-            <div>
-                <a href="#">yt-dlp <span class="pi pi-external-link"></span></a>
-                <a href="#">ffmpeg <span class="pi pi-external-link"></span></a>
+            <div class="flex" >
+                <a href="https://github.com/yt-dlp/yt-dlp" target="_blank" class="flex items-center me-4">yt-dlp <span class="pi pi-external-link ms-2"></span></a>
+                <a href="https://www.ffmpeg.org" target="_blank" class="flex items-center">ffmpeg <span class="pi pi-external-link ms-2"></span></a>
             </div>
         </section>
     </footer>
@@ -47,11 +57,10 @@ export default {
 <style scoped>
     footer {
         display: flex;
-        align-items: center;
+        flex-direction: column;
         justify-content: space-between;
         background: var(--surface-950);
         width: 100%;
-        padding: .8em 1.2em;
         border-top: 1px solid var(--surface-800);
     }
 
@@ -64,4 +73,30 @@ export default {
     .buttons button{
         margin-left: 1.5em;
     }
+
+    section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--surface-900);
+        padding: 3em 2em;
+    }
+        section:first-child {
+            border-bottom: 1px solid var(--surface-800);
+        }
+        
+        .topics {
+            align-self: start;
+        }
+
+        .topics > ul > li:first-child {
+            font-weight: bold;
+        }
+
+        .topics a:not(:first-child) {
+            color: var(--surface-500) ;
+            font-weight: normal !important;
+        }
+
+
 </style>

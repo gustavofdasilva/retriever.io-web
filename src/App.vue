@@ -8,13 +8,13 @@
           <h2>Simpler & Easier</h2>
           <aside>Retriever.io is a powerful desktop application that lets you download videos from multiple websites simultaneously with just a few clicks.</aside>
           <SplitButton class="me-3" label="Download for windows" icon="pi pi-download" :model="items" ></SplitButton>
-          <Button label="View in github" icon="pi pi-github" severity="secondary" ></Button>
+          <Button @click="openLink('https://github.com/gustavofdasilva/retriever.io')" label="View in github" icon="pi pi-github" severity="secondary" ></Button>
         </div>
         <img src="./assets/screenshot-landing.png" alt="screenshot landing">
       </div>
     </section>
 
-    <section class="functionalities-section">
+    <section class="functionalities-section" id="features" >
       <div class="flex flex-col items-center">
         <h3>Powerful Features</h3>
         <aside>Retriever.io combines simplicity with powerful functionality to give you the best video downloading experience.</aside>
@@ -58,35 +58,41 @@
         </div>
     </section>
 
-    <section class="explanation-section">
-      <div>
+    <section class="explanation-section" id="how-it-works">
+      <div class="flex flex-col items-center">
         <h3>How It Works</h3>
         <p>Retriever.io makes downloading videos incredibly simple with just a few steps.</p>
       </div>
 
-      <div>
-        <img src="#" alt="screenshot download page"/>
+      <div class="content">
+        <img src="./assets/screenshot-multiple.png" alt="screenshot download page"/>
         <aside>
           <div>
-            <span>1</span>
-            <div>
+            <div class="card-header">
+              <span> 1 </span>
               <p>Paste your URL</p>
+            </div>
+            <div>
               <p>Copy the video URL from your browser and paste it into Retriever.io. You can paste multiple URLs for batch downloads.</p>
             </div>
           </div>
 
           <div>
-            <span>2</span>
-            <div>
+            <div class="card-header">
+              <span> 2 </span>
               <p>Choose Your Options</p>
+            </div>
+            <div>
               <p>Select your preferred quality, format, and download location, or use the quick-download option for default settings.</p>
             </div>
           </div>
 
           <div>
-            <span>3</span>
-            <div>
+            <div class="card-header">
+              <span> 3 </span>
               <p>Download & Enjoy</p>
+            </div>
+            <div>
               <p>Click the download button and Retriever.io will handle the rest. Monitor progress in real-time and access your files when complete.</p>
             </div>
           </div>
@@ -97,12 +103,12 @@
     </section>
 
     <section class="download-history-section">
-      <div>
+      <div class="flex flex-col items-center">
         <h3>Track Your Downloads</h3>
-        <p>Easily manage and organize all your downloaded content with our intuitive interface.</p>
+        <p>Easily manage and organize all your downloaded content.</p>
       </div>
 
-      <img src="#" alt="screenshot history page"/>
+      <img src="./assets/screenshot-downloads.png" alt="screenshot history page"/>
     </section>
 
     <section class="download-section">
@@ -112,11 +118,11 @@
         <p>Download now for free the easiest way to save videos.</p>
       </div>
 
-      <div>
+      <div class="mb-4">
         <SplitButton label="Download for windows" icon="pi pi-download" :model="items" ></SplitButton>
-        <Button label="View in github" icon="pi pi-github" severity="secondary" class="ms-2" ></Button>
+        <Button @click="openLink('https://github.com/gustavofdasilva/retriever.io')" label="View in github" icon="pi pi-github" severity="secondary" class="ms-2" ></Button>
       </div>
-      <a href="#">Versions</a>
+      <a href="#">See all versions</a>
 
     </section>
 
@@ -156,10 +162,21 @@ import Footer from './components/Footer.vue';
         ]
       }
     },
+    methods: {
+      openLink(url) {
+        window.open(url,'_blank');
+      }
+    }
   }
 </script>
 
 <style scoped>
+
+  img {
+    border: 1px solid var(--surface-800);
+    border-radius: 10px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.281);
+  }
 
   section {
     min-height: 100vh;
@@ -188,13 +205,13 @@ import Footer from './components/Footer.vue';
 
     .landing-section h1 {
       font-size: 4em;
+      line-height: 1em;
       font-weight: bold;
     }
 
     .landing-section h2 {
       font-size: 3em;
       font-weight: bold;
-      margin-top: -20px;
       color: var(--primary);
     }
 
@@ -273,13 +290,108 @@ import Footer from './components/Footer.vue';
 
    
   .explanation-section {
-
+    padding: 4em 0 4em 0;
   }
+    .explanation-section h3 {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: .5em;
+    }
+    .explanation-section > div > p {
+      font-size: 1em;
+      width: 80%;
+      color: var(--surface-400);
+    }
+
+    .explanation-section .content {
+      display: flex; 
+      justify-content: space-between;
+      align-items: center;
+      padding: 2.5em 2em 0 2em;
+      text-align: start;
+    }
+      .explanation-section .content > img {
+        width: 45%;
+        margin-right: 5em;
+        transition: ease .3s all;
+      }
+        .explanation-section .content > img:hover {
+          transition: ease .3s all;
+          box-shadow: 0px 10px 10px -3px color-mix(in srgb, var(--primary) 5%, transparent);
+        }
+
+      .explanation-section .content > aside > div {
+        margin: 1em 0 3em 0;
+      }
+
+      .explanation-section .content > aside > div > div.card-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: .5em;
+      }
+
+      .explanation-section .content > aside > div > div.card-header > span{
+        background: var(--primary);
+        width: 2.2em;
+        height: 2.2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: var(--surface-900);
+        font-weight: bold;
+      }
+
+      .explanation-section .content > aside > div > div.card-header > p {
+        color: var(--white-text);
+        font-weight: bold;
+        margin-left: .5em;
+        font-size: 1.2em;
+      }
+
 
   .download-history-section {
     background-color: var(--surface-950);
+    padding: 4em 0 4em 0;
   }
+    .download-history-section h3 {
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: .5em;
+      }
+    .download-history-section p {
+      font-size: 1em;
+      color: var(--surface-500);
+    }
+    .download-history-section img {
+      width: 70%;
+      margin-top: 3em;
+      transition: ease .3s all;
+    }
+      .download-history-section img:hover {
+        transition: ease .3s all;
+        box-shadow: 0px 10px 10px -3px color-mix(in srgb, var(--primary) 5%, transparent);
+      }
    
+  .download-section {
+    padding: 9em 0 9em 0;
+    min-height: 0;
+    background-image: url(./assets/background-blob-spike.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+    .download-section h3 {
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: .2em;
+      }
+    .download-section p {
+      font-size: 1em;
+      margin-bottom: 2em;
+      color: var(--surface-500);
+    }
 
 
 </style>
