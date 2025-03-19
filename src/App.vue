@@ -1,131 +1,7 @@
 <template>
   <div>
-    <Header></Header>
-    <section class="landing-section">
-      <div class="flex items-center">
-        <div>
-          <h1>Download Videos</h1>
-          <h2>Simpler & Easier</h2>
-          <aside>Retriever.io is a powerful desktop application that lets you download videos from multiple websites simultaneously with just a few clicks.</aside>
-          <SplitButton class="me-3" label="Download for windows" icon="pi pi-download" :model="items" ></SplitButton>
-          <Button @click="openLink('https://github.com/gustavofdasilva/retriever.io')" label="View in github" icon="pi pi-github" severity="secondary" ></Button>
-        </div>
-        <img src="./assets/screenshot-landing.png" alt="screenshot landing">
-      </div>
-    </section>
-
-    <section class="functionalities-section" id="features" >
-      <div class="flex flex-col items-center">
-        <h3>Powerful Features</h3>
-        <aside>Retriever.io combines simplicity with powerful functionality to give you the best video downloading experience.</aside>
-      </div>
-        <div class="grid-section">
-          <div class="card">
-            <span class="pi pi-check"></span>
-            <p >Simple Mode</p>
-            <p class="">Quick one-click downloads with default settings for when you're in a hurry.</p>
-          </div>
-
-          <div class="card">
-            <span class="pi pi-sliders-v"></span>
-            <p>Detailed Controls</p>
-            <p>Fine-tune your downloads with quality settings, format selection, and more.</p>
-          </div>
-
-          <div class="card">
-            <span class="pi pi-objects-column"></span>
-            <p>Multiple Downloads</p>
-            <p>Download multiple videos at once to save time and maximize efficiency.</p>
-          </div>
-
-          <div class="card">
-            <span class="pi pi-plus"></span>
-            <p>Wide Compatibility</p>
-            <p>Works with hundreds of websites including YouTube, Vimeo, and many more.</p>
-          </div>
-
-          <div class="card">
-            <span class="pi pi-save"></span>
-            <p>Format Conversion</p>
-            <p>Download videos in various formats including MP4, MP3, WEBM, and more.</p>
-          </div>
-
-          <div class="card">
-            <span class="pi pi-download"></span>
-            <p>Fast Downloads</p>
-            <p>Optimized for speed with multiple downloads at the same time.</p>
-          </div>
-        </div>
-    </section>
-
-    <section class="explanation-section" id="how-it-works">
-      <div class="flex flex-col items-center">
-        <h3>How It Works</h3>
-        <p>Retriever.io makes downloading videos incredibly simple with just a few steps.</p>
-      </div>
-
-      <div class="content">
-        <img src="./assets/screenshot-multiple.png" alt="screenshot download page"/>
-        <aside>
-          <div>
-            <div class="card-header">
-              <span> 1 </span>
-              <p>Paste your URL</p>
-            </div>
-            <div>
-              <p>Copy the video URL from your browser and paste it into Retriever.io. You can paste multiple URLs for batch downloads.</p>
-            </div>
-          </div>
-
-          <div>
-            <div class="card-header">
-              <span> 2 </span>
-              <p>Choose Your Options</p>
-            </div>
-            <div>
-              <p>Select your preferred quality, format, and download location, or use the quick-download option for default settings.</p>
-            </div>
-          </div>
-
-          <div>
-            <div class="card-header">
-              <span> 3 </span>
-              <p>Download & Enjoy</p>
-            </div>
-            <div>
-              <p>Click the download button and Retriever.io will handle the rest. Monitor progress in real-time and access your files when complete.</p>
-            </div>
-          </div>
-
-          <Button label="Get Started Now" icon="pi pi-download" ></Button>
-        </aside>
-      </div>
-    </section>
-
-    <section class="download-history-section">
-      <div class="flex flex-col items-center">
-        <h3>Track Your Downloads</h3>
-        <p>Easily manage and organize all your downloaded content.</p>
-      </div>
-
-      <img src="./assets/screenshot-downloads.png" alt="screenshot history page"/>
-    </section>
-
-    <section class="download-section">
-
-      <div>
-        <h3>Ready to Start Downloading?</h3>
-        <p>Download now for free the easiest way to save videos.</p>
-      </div>
-
-      <div class="mb-4">
-        <SplitButton label="Download for windows" icon="pi pi-download" :model="items" ></SplitButton>
-        <Button @click="openLink('https://github.com/gustavofdasilva/retriever.io')" label="View in github" icon="pi pi-github" severity="secondary" class="ms-2" ></Button>
-      </div>
-      <a href="#">See all versions</a>
-
-    </section>
-
+    <Header/>
+    <RouterView />
     <Footer/>
 
   </div>
@@ -136,13 +12,15 @@
   import SplitButton from 'primevue/splitbutton';
   import Button from 'primevue/button';
 import Footer from './components/Footer.vue';
+import { RouterView } from 'vue-router';
 
   export default {
     components: {
       Header,
       SplitButton,
       Button,
-      Footer
+      Footer,
+      RouterView
     },
     data() {
       return {

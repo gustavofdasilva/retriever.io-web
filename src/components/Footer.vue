@@ -25,7 +25,7 @@
             <div class="topics">
               <ul>
                     <li>Legal</li>
-                  <a href="">
+                  <a href="/terms">
                       <li>Terms of Use</li>
                   </a>
                   <a href="">
@@ -87,6 +87,7 @@ export default {
         
         .topics {
             align-self: start;
+            margin-left: 2em;
         }
 
         .topics > ul > li:first-child {
@@ -97,6 +98,12 @@ export default {
             color: var(--surface-500) ;
             font-weight: normal !important;
         }
+
+    li, a {
+        overflow: hidden; 
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 
 
 </style>
