@@ -2,18 +2,11 @@
     <div>
       <section>
         <main>
-          <h1>About</h1>
+          <h1>404</h1>
           <div class="mb-2 ms-4">
-            <p>Completely free, Retriever.io is a Open Source GUI that works as a frontend for yt-dlp, with a focus on making it easier to use for users with no programming experience.</p>
-            <p class="mt-5">If you have any suggestion or bug report, don’t hesitate to open an issue in <a href="">github</a></p>
+            <p>The page you are trying to access do not exists.</p>
+            <p>Go back to <a href="/">home screen</a></p>
           </div>
-
-          <h2 class="mt-12" >Developers</h2>
-          <ul class="ms-4">
-            <li>Gustavo Silva - Founder <a href="https://github.com/gustavofdasilva" target="_blank"><span class="ms-2 pi pi-github"></span></a></li>
-          </ul>
-
-          <h3 class="text-center font-semibold text-[var(--surface-600)] mt-24">Thank you for choosing Retriever.io <span class="pi pi-heart"></span></h3>
         </main>
       </section>
     </div>
@@ -79,6 +72,11 @@ import { Button, SplitButton } from 'primevue'
       width: 60%;
       margin: 0 auto;
       margin-bottom: 2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
     }
 
     p {

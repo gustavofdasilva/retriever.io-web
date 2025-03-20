@@ -4,9 +4,9 @@
             <div>
               <p>Retriever.io</p>
               <p class="text-[var(--surface-600)] w-[80%] mb-3">A powerful desktop application for downloading multiple videos simultaneously from a wide variety of websites.</p>
-              <a href="#" class="me-2"><span class="pi pi-github"></span></a>
-              <a href="#" class="me-2"><span class="pi pi-twitter"></span></a>
-              <a href="#" class="me-2"><span class="pi pi-instagram"></span></a>
+              <a href="https://github.com/gustavofdasilva/retriever.io" target="_blank" class="me-2"><span class="pi pi-github"></span></a>
+              <a href="https://x.com/retriever_io" class="me-2"><span class="pi pi-twitter"></span></a>
+              <a href="https://www.instagram.com/retriever.io.app/" class="me-2"><span class="pi pi-instagram"></span></a>
             </div>
             <div class="topics" >
               <ul>
@@ -28,7 +28,7 @@
                   <a href="/terms">
                       <li>Terms of Use</li>
                   </a>
-                  <a href="">
+                  <a href="https://opensource.org/license/mit" target="_blank">
                       <li>License</li>
                   </a>
               </ul>
@@ -36,7 +36,6 @@
         </section>
         <section>
             <div>
-                <a href="https://github.com/gustavofdasilva/retriever.io" target="_blank" >Retriever.io</a>
                 <p  class="text-[var(--surface-600)] w-[80%]" >Retriver.io is not affiliated with yt-dlp. It is a external tool that depends of yt-dlp to run</p>
             </div>
             <div class="flex" >
