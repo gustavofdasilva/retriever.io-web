@@ -121,7 +121,7 @@
           <SplitButton label="Download for windows" icon="pi pi-download" :model="items" ></SplitButton>
           <Button @click="openLink('https://github.com/gustavofdasilva/retriever.io')" label="View in github" icon="pi pi-github" severity="secondary" class="ms-2" ></Button>
         </div>
-        <a href="#">See all versions</a>
+        <a href="/versions">See all versions</a>
   
       </section>
   
@@ -150,6 +150,12 @@ import { Button, SplitButton } from 'primevue'
                   label: 'Download for Linux',
                   command: () => {
                       
+                  }
+              },
+              { 
+                label: 'See all versions',
+                  command: () => {
+                    this.$router.push('/versions')   
                   }
               },
           ]

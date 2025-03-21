@@ -3,12 +3,14 @@ import Home from './views/Home.vue'
 import About from './views/About.vue';
 import Terms from './views/Terms.vue';
 import PageNotFound from './views/PageNotFound.vue';
+import Versions from './views/Versions.vue';
 
 
 const routes = [
   { path: '/', component: Home },
   { path: '/about', component: About },
   { path: '/terms', component: Terms },
+  { path: '/versions', component: Versions },
   { path: '/:pathMatch(.*)*', component: PageNotFound },
 ]
 

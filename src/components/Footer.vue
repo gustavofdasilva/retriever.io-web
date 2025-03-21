@@ -17,7 +17,7 @@
                   <a href="">
                       <li>Tutorials</li>
                   </a>
-                  <a href="">
+                  <a href="/versions">
                       <li>Versions</li>
                   </a>
               </ul>
@@ -96,7 +96,14 @@ export default {
         .topics a:not(:first-child) {
             color: var(--surface-500) ;
             font-weight: normal !important;
+            transition: .2s ease all;
         }
+            .topics a:not(:first-child):hover {
+                color: var(--surface-700) ;
+                font-weight: normal !important;
+                transition: .2s ease all;
+            }
+
 
     li, a {
         overflow: hidden; 
