@@ -10,7 +10,7 @@
             <Button @click="navigateTo('featuresRef')" label="Features" variant="text"  severity="secondary" ></Button>
             <Button @click="navigateTo('howItWorksRef')" label="How it works" variant="text"  severity="secondary" ></Button>
             <Button @click="goTo('/about')"  label="About" variant="text" severity="secondary" ></Button>
-            <Button @click="goTo('/download')"  label="Download" icon="pi pi-download" ></Button>
+            <Button @click="goTo(downloadFor().link)"  label="Download" icon="pi pi-download" ></Button>
 
             <a class="hidden" href="/#features" ref="featuresRef" >ref</a>
             <a class="hidden" href="/#how-it-works" ref="howItWorksRef" >ref</a>
@@ -19,6 +19,7 @@
 </template>
 <script>
 import Button from 'primevue/button';
+import { getOS } from '../helpers/checkOs';
 export default {
     components: {
         Button
@@ -30,7 +31,28 @@ export default {
         goTo(page) {
             console.log(page)
             this.$router.push(page);
-        }
+        },
+        downloadFor() {
+          const os = getOS();
+          
+          if (os === 'mac') {
+            return {
+              label: 'Download for MacOs',
+              link: '/download?os=mac'
+            }
+          } else if (os === 'linux') {
+            return {
+              label: 'Download for Linux',
+              link: '/download?os=linux'
+            }
+          } else {
+            return {
+              label: 'Download for Windows',
+              link: '/download?os=windows'
+            }
+          }
+
+        },
     }
 }
 </script>

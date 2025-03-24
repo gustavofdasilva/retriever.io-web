@@ -6,7 +6,7 @@
             <h1>Download Videos</h1>
             <h2>Simpler & Easier</h2>
             <aside>Retriever.io is a powerful desktop application that lets you download videos from multiple websites simultaneously with just a few clicks.</aside>
-            <SplitButton class="me-3" label="Download for windows" icon="pi pi-download" :model="items" ></SplitButton>
+            <SplitButton class="me-3" icon="pi pi-download" :model="downloadSubOptions()" :label="downloadFor().label" @click="()=>{$router.push(downloadFor().link)}" ></SplitButton>
             <Button @click="openLink('https://github.com/gustavofdasilva/retriever.io')" label="View in github" icon="pi pi-github" severity="secondary" ></Button>
           </div>
           <img src="/src/assets/screenshot-landing.png" alt="screenshot landing">
@@ -118,7 +118,7 @@
         </div>
   
         <div class="mb-4">
-          <SplitButton label="Download for windows" icon="pi pi-download" :model="items" ></SplitButton>
+          <SplitButton :label="downloadFor().label" icon="pi pi-download" :model="downloadSubOptions()" @click="()=>{$router.push(downloadFor().link)}" ></SplitButton>
           <Button @click="openLink('https://github.com/gustavofdasilva/retriever.io')" label="View in github" icon="pi pi-github" severity="secondary" class="ms-2" ></Button>
         </div>
         <a href="/versions">See all versions</a>
@@ -130,6 +130,7 @@
   
   <script>
 import { Button, SplitButton } from 'primevue'
+import { getOS } from '../helpers/checkOs'
 
   
     export default {
@@ -139,29 +140,68 @@ import { Button, SplitButton } from 'primevue'
       },
       data() {
         return {
-          items: [
-              {
-                  label: 'Download for MacOs',
-                  command: () => {
-                      
-                  }
-              },
-              {
-                  label: 'Download for Linux',
-                  command: () => {
-                      
-                  }
-              },
-              { 
-                label: 'See all versions',
-                  command: () => {
-                    this.$router.push('/versions')   
-                  }
-              },
-          ]
         }
       },
       methods: {
+        downloadSubOptions() {
+          const os = getOS();
+          let items = [];
+          const macosSubOption = {
+            label: 'Download for MacOs',
+            command: () => {
+                this.$router.push('/download?os=mac');
+            }
+          }
+          const linuxSubOption = {
+            label: 'Download for Linux',
+            command: () => {
+              this.$router.push('/download?os=linux');
+            }
+          }
+          const windowsSubOption = {
+            label: 'Download for Windows',
+            command: () => {
+              this.$router.push('/download?os=windows');
+            }
+          }
+          const seeAllVersionsSubOption = {
+            label: 'See all versions',
+            command: () => {
+              this.$router.push('/versions')   
+            }
+          }
+          
+          if (os === 'mac') {
+            items.push(linuxSubOption, windowsSubOption, seeAllVersionsSubOption);
+          } else if (os === 'linux') {
+            items.push(macosSubOption, windowsSubOption, seeAllVersionsSubOption);
+          } else {
+            items.push(macosSubOption, linuxSubOption, seeAllVersionsSubOption);
+          }
+
+          return items;
+        },
+        downloadFor() {
+          const os = getOS();
+          
+          if (os === 'mac') {
+            return {
+              label: 'Download for MacOs',
+              link: '/download?os=mac'
+            }
+          } else if (os === 'linux') {
+            return {
+              label: 'Download for Linux',
+              link: '/download?os=linux'
+            }
+          } else {
+            return {
+              label: 'Download for Windows',
+              link: '/download?os=windows'
+            }
+          }
+
+        },
         openLink(url) {
           window.open(url,'_blank');
         }
