@@ -99,6 +99,14 @@ import { Button, SplitButton } from 'primevue'
       align-items: center;
     }
 
+    
+    @media screen and (max-width: 768px) {
+      main {
+        width: 100%;
+        padding: 0 1.5em;
+      }
+      
+    }
   
   </style>
   

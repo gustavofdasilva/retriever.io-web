@@ -13,7 +13,7 @@
             <li>Gustavo Silva - Founder <a href="https://github.com/gustavofdasilva" target="_blank"><span class="ms-2 pi pi-github"></span></a></li>
           </ul>
 
-          <h3 class="text-center font-semibold text-[var(--surface-600)] mt-24">Thank you for choosing Retriever.io <span class="pi pi-heart"></span></h3>
+          <h3 class="text-center font-semibold text-[var(--surface-700)] mt-42">Thank you for choosing Retriever.io <span class="pi pi-heart"></span></h3>
         </main>
       </section>
     </div>
@@ -78,7 +78,7 @@ import { Button, SplitButton } from 'primevue'
     main {
       width: 60%;
       margin: 0 auto;
-      margin-bottom: 2em;
+      margin-bottom: 1em;
     }
 
     p {
@@ -99,6 +99,14 @@ import { Button, SplitButton } from 'primevue'
     li {
       display: flex;
       align-items: center;
+    }
+
+    @media screen and (max-width: 768px) {
+      main {
+        width: 100%;
+        padding: 0 1.5em;
+      }
+      
     }
 
   

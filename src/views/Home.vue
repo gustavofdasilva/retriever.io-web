@@ -6,7 +6,7 @@
             <h1>Download Videos</h1>
             <h2>Simpler & Easier</h2>
             <aside>Retriever.io is a powerful desktop application that lets you download videos from multiple websites simultaneously with just a few clicks.</aside>
-            <SplitButton class="me-3" icon="pi pi-download" :model="downloadSubOptions()" :label="downloadFor().label" @click="()=>{openLink(downloadFor().link)}" ></SplitButton>
+            <SplitButton icon="pi pi-download" :model="downloadSubOptions()" :label="downloadFor().label" @click="()=>{openLink(downloadFor().link)}" ></SplitButton>
             <Button @click="openLink('https://github.com/gustavofdasilva/retriever.io')" label="View in github" icon="pi pi-github" severity="secondary" ></Button>
           </div>
           <img src="/src/assets/screenshot-landing.png" alt="screenshot landing">
@@ -96,7 +96,7 @@
               </div>
             </div>
   
-            <Button  @click="openLink(downloadFor().link)" label="Get Started Now" icon="pi pi-download" ></Button>
+            <Button @click="openLink(downloadFor().link)" label="Get Started Now" icon="pi pi-download" ></Button>
           </aside>
         </div>
       </section>
@@ -118,8 +118,8 @@
         </div>
   
         <div class="mb-4">
-          <SplitButton :label="downloadFor().label" icon="pi pi-download" :model="downloadSubOptions()" @click="openLink(downloadFor().link)" ></SplitButton>
-          <Button @click="openLink('https://github.com/gustavofdasilva/retriever.io')" label="View in github" icon="pi pi-github" severity="secondary" class="ms-2" ></Button>
+          <SplitButton fluid :label="downloadFor().label" icon="pi pi-download" :model="downloadSubOptions()" @click="openLink(downloadFor().link)" ></SplitButton>
+          <Button @click="openLink('https://github.com/gustavofdasilva/retriever.io')" label="View in github" icon="pi pi-github" severity="secondary" ></Button>
         </div>
         <a href="/versions">See all versions</a>
   
@@ -230,11 +230,11 @@ import githubUrls from '../constants/githubUrls';
     }
   
     .landing-section {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 2em;
+      padding: 6em 2em 4em 2em;
       background-image: url(/src//assets/background-blob.svg);
       background-position: center;
       background-repeat: no-repeat;
@@ -273,6 +273,48 @@ import githubUrls from '../constants/githubUrls';
         box-shadow: 0px 10px 15px -3px color-mix(in srgb, var(--primary) 10%, transparent);
         transition: ease .2s all;
       }
+
+      .landing-section .p-splitbutton {
+        margin-right: 1em;
+        margin-bottom: .5em;
+      }
+
+    @media screen and (max-width: 768px) {
+      .landing-section > div{
+        margin-top: 6em;
+        
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .landing-section h1 {
+        font-size: 3em;
+        line-height: 1em;
+        font-weight: bold;
+      }
+  
+      .landing-section h2 {
+        font-size: 2em;
+        font-weight: bold;
+        color: var(--primary);
+      }
+
+      .landing-section aside {
+        width: 100%;
+      }
+
+      .landing-section img {
+        flex: 1;
+        width: 100%;
+        margin-top: 2em;
+      }
+
+      .landing-section .p-splitbutton {
+        margin-right: 0;
+        margin-bottom: .5em;
+      }
+      
+    }
   
     .functionalities-section {
       background-color: var(--surface-950);
@@ -326,6 +368,17 @@ import githubUrls from '../constants/githubUrls';
           font-weight: normal;
           color: var(--surface-500);
         }
+
+    @media screen and (max-width: 768px) {
+      .functionalities-section .grid-section {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        grid-column-gap: 30px;
+        grid-row-gap: 30px;
+      }
+      
+    }
     
   
      
@@ -388,11 +441,38 @@ import githubUrls from '../constants/githubUrls';
           margin-left: .5em;
           font-size: 1.2em;
         }
+
+    @media screen and (max-width: 768px) {
+      .explanation-section .content {
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        text-align: start;
+        flex-direction: column;
+      }
+  
+      .explanation-section .content > img {
+        width: 100%;
+        margin: 2em 0 2em 0;
+      }
+
+      .explanation-section .content > aside {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      } 
+
+      .explanation-section .content > aside button{
+        align-self: flex-end;
+      }
+      
+    }
   
   
     .download-history-section {
       background-color: var(--surface-950);
-      padding: 4em 0 4em 0;
+      padding: 5em 2em;
     }
       .download-history-section h3 {
           font-size: 2em;
@@ -412,9 +492,17 @@ import githubUrls from '../constants/githubUrls';
           transition: ease .3s all;
           box-shadow: 0px 10px 10px -3px color-mix(in srgb, var(--primary) 5%, transparent);
         }
+
+    @media screen and (max-width: 768px) {
+      .download-history-section img {
+        width: 100%;
+        margin-top: 3em;
+      }
+      
+    }
      
     .download-section {
-      padding: 9em 0 9em 0;
+      padding: 9em 2em 9em 2em;
       min-height: 0;
       background-image: url(/src/assets/background-blob-spike.svg);
       background-position: center;
@@ -432,6 +520,17 @@ import githubUrls from '../constants/githubUrls';
         margin-bottom: 2em;
         color: var(--surface-500);
       }
+      .download-section button, .download-section .p-splitbutton {
+          margin-bottom: .5em;
+      }
+
+  @media screen and (max-width: 768px) {
+    .download-section button, .download-section .p-splitbutton {
+      width: 100%;
+      margin-bottom: 1em;
+    }
+    
+  }
   
   
   </style>

@@ -2,7 +2,7 @@
     <div>
       <section>
         <main>
-          <h1>Versions</h1>
+          <h1 class="mb-3">Versions</h1>
           <div class="mb-2">
             <div class="flex justify-center items-center">
                 <SelectButton size="small" class="w-[100%]" fluid v-model="tabValue" :options="tabOptions" optionLabel="value" dataKey="value" aria-labelledby="custom">
@@ -13,7 +13,7 @@
                 </SelectButton>
             </div>
 
-            <div class="bg-[var(--surface-950)] w-[100%] p-4 rounded mt-2">
+            <div class="bg-[var(--surface-950)] w-[100%] p-4 rounded mt-2 desktop-view">
                 <p class="mb-2">{{ tabValue.value }} version history </p>    
                 <div class="versions-table-size table-header">
                     <span>Version</span>
@@ -34,6 +34,33 @@
                         <div class="block" v-for="file in version.downloadVersions[tabValue.value.toLowerCase()].versions">
                             <Button :disabled="file.link == ''" @click="()=>{openLink(file.link)}" size="small" icon="pi pi-download" :label="file.label" variant="text" />
                         </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="bg-[var(--surface-950)] w-[100%] p-4 rounded mt-2 mobile-view">
+                <p class="mb-2">{{ tabValue.value }} version history </p>    
+                <div class="versions-table-size-mobile table-header">
+                    <span>Version</span>
+                    <span>Status</span>
+                    <span>Download</span>
+                </div>
+
+                <div class="versions-table-size-mobile table-body flex grid-" v-for="version in versions" :key="version.version">
+                    <span class="font-bold">{{ version.version }}</span>
+                    <div class="flex items-center justify-start">
+                        <Tag :severity="version.status == 'Latest' ? 'success' : 'secondary'" :value="version.status" rounded></Tag>
+                    </div>
+                    <div class="flex items-start justify-center flex-col">
+                        <div class="block" v-for="file in version.downloadVersions[tabValue.value.toLowerCase()].versions">
+                            <Button :disabled="file.link == ''" @click="()=>{openLink(file.link)}" size="small" icon="pi pi-download" :label="file.label" variant="text" />
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4" style="grid-area:  2 / 1 / 2 / 4; ;" >
+                      <span class="text-[var(--surface-600)]" >Released in: {{ formatDate(version.date) }}</span>
+                      <span class="mt-1">Release Notes:</span>
+                      <span class="ms-5">{{ version.releaseNotes }}</span>
                     </div>
                 </div>
                 
@@ -150,7 +177,15 @@ import versions from '../constants/versions';
 
     .versions-table-size {
         display: grid;
-        grid-template-columns: .6fr .9fr .8fr 2fr 1fr;
+        grid-template-columns: .6fr .9fr .8fr 1.3fr 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 5px;
+    }
+
+    .versions-table-size-mobile {
+        display: grid;
+        grid-template-columns: .7fr .7fr 1fr;
         grid-template-rows: 1fr;
         grid-column-gap: 0px;
         grid-row-gap: 5px;
@@ -169,10 +204,30 @@ import versions from '../constants/versions';
         align-items: center;
     }
 
+    .desktop-view {
+        display: block;
+      }
 
+    .mobile-view {
+        display: none;
+      }
 
+    
+    @media screen and (max-width: 768px) {
+      main {
+        width: 100%;
+        padding: 0 1.5em;
+      }
 
+      .desktop-view {
+        display: none;
+      }
 
+      .mobile-view {
+        display: block;
+      }
+      
+    }
   
   </style>
   
