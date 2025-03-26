@@ -4,6 +4,8 @@ import About from './views/About.vue';
 import Terms from './views/Terms.vue';
 import PageNotFound from './views/PageNotFound.vue';
 import Versions from './views/Versions.vue';
+import Tutorials from './views/Tutorials.vue';
+import InstallationGuide from './views/InstallationGuide.vue';
 
 
 const routes = [
@@ -11,6 +13,8 @@ const routes = [
   { path: '/about', component: About },
   { path: '/terms', component: Terms },
   { path: '/versions', component: Versions },
+  { path: '/tutorials', component: Tutorials },
+  { path: '/installationGuide', component: InstallationGuide },
   { path: '/:pathMatch(.*)*', component: PageNotFound },
 ]
 

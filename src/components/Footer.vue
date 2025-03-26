@@ -11,12 +11,12 @@
             <div class="topics" >
               <ul>
                   <li>Resources</li>
-                  <a href="/instalationGuide">
+                  <!-- <a href="/installationGuide">
                       <li>Installation Guide</li>
                   </a>
                   <a href="/tutorials">
                       <li>Tutorials</li>
-                  </a>
+                  </a> -->
                   <a href="/versions">
                       <li>Versions</li>
                   </a>

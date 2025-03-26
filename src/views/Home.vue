@@ -6,7 +6,7 @@
             <h1>Download Videos</h1>
             <h2>Simpler & Easier</h2>
             <aside>Retriever.io is a powerful desktop application that lets you download videos from multiple websites simultaneously with just a few clicks.</aside>
-            <SplitButton class="me-3" icon="pi pi-download" :model="downloadSubOptions()" :label="downloadFor().label" @click="()=>{$router.push(downloadFor().link)}" ></SplitButton>
+            <SplitButton class="me-3" icon="pi pi-download" :model="downloadSubOptions()" :label="downloadFor().label" @click="()=>{openLink(downloadFor().link)}" ></SplitButton>
             <Button @click="openLink('https://github.com/gustavofdasilva/retriever.io')" label="View in github" icon="pi pi-github" severity="secondary" ></Button>
           </div>
           <img src="/src/assets/screenshot-landing.png" alt="screenshot landing">
@@ -64,7 +64,7 @@
         </div>
   
         <div class="content">
-          <img src="/src/assets/screenshot-multiple.png" alt="screenshot download page"/>
+          <img src="/src/assets/downloading-video.gif" alt="screenshot download page"/>
           <aside>
             <div>
               <div class="card-header">
@@ -96,7 +96,7 @@
               </div>
             </div>
   
-            <Button label="Get Started Now" icon="pi pi-download" ></Button>
+            <Button  @click="openLink(downloadFor().link)" label="Get Started Now" icon="pi pi-download" ></Button>
           </aside>
         </div>
       </section>
@@ -118,7 +118,7 @@
         </div>
   
         <div class="mb-4">
-          <SplitButton :label="downloadFor().label" icon="pi pi-download" :model="downloadSubOptions()" @click="()=>{$router.push(downloadFor().link)}" ></SplitButton>
+          <SplitButton :label="downloadFor().label" icon="pi pi-download" :model="downloadSubOptions()" @click="openLink(downloadFor().link)" ></SplitButton>
           <Button @click="openLink('https://github.com/gustavofdasilva/retriever.io')" label="View in github" icon="pi pi-github" severity="secondary" class="ms-2" ></Button>
         </div>
         <a href="/versions">See all versions</a>
@@ -131,6 +131,7 @@
   <script>
 import { Button, SplitButton } from 'primevue'
 import { getOS } from '../helpers/checkOs'
+import githubUrls from '../constants/githubUrls';
 
   
     export default {
@@ -187,17 +188,17 @@ import { getOS } from '../helpers/checkOs'
           if (os === 'mac') {
             return {
               label: 'Download for MacOs',
-              link: '/download?os=mac'
+              link: 'https://github.com/gustavofdasilva/retriever.io/releases/tag/v1.0.0/'
             }
           } else if (os === 'linux') {
             return {
               label: 'Download for Linux',
-              link: '/download?os=linux'
+              link: githubUrls.linux.deb
             }
           } else {
             return {
               label: 'Download for Windows',
-              link: '/download?os=windows'
+              link: githubUrls.windows.setup
             }
           }
 

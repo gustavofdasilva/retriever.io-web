@@ -1,3 +1,5 @@
+import githubUrls from "./githubUrls"
+
 const versions = [
     {
         version: '1.0',
@@ -9,11 +11,11 @@ const versions = [
                 versions: [
                     {
                         label: 'Setup',
-                        link: ''
+                        link: githubUrls.windows.setup
                     },
                     {
                         label: 'Portable',
-                        link: ''
+                        link: githubUrls.windows.portable
                     }
                 ],
             },
@@ -21,30 +23,30 @@ const versions = [
                 versions: [
                     {
                         label: '.deb',
-                        link: ''
+                        link: githubUrls.linux.deb
                     },
                     {
                         label: '.rpm',
-                        link: ''
+                        link: githubUrls.linux.rpm
                     },
                     {
-                        label: '.tar.gz',
-                        link: ''
+                        label: '.appimage',
+                        link: githubUrls.linux.appImage
                     }
                 ],
             },
-            macos: {
-                versions: [
-                    {
-                        label: 'Setup',
-                        link: ''
-                    },
-                    {
-                        label: 'Portable',
-                        link: ''
-                    },
-                ],
-            }
+            // macos: {
+            //     versions: [
+            //         {
+            //             label: 'Setup',
+            //             link: ''
+            //         },
+            //         {
+            //             label: 'Portable',
+            //             link: ''
+            //         },
+            //     ],
+            // }
         }
     },
 ]

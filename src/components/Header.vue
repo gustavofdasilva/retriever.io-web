@@ -10,7 +10,7 @@
             <Button @click="navigateTo('featuresRef')" label="Features" variant="text"  severity="secondary" ></Button>
             <Button @click="navigateTo('howItWorksRef')" label="How it works" variant="text"  severity="secondary" ></Button>
             <Button @click="goTo('/about')"  label="About" variant="text" severity="secondary" ></Button>
-            <Button @click="goTo(downloadFor().link)"  label="Download" icon="pi pi-download" ></Button>
+            <Button @click="openLink(downloadFor().link)"  label="Download" icon="pi pi-download" ></Button>
 
             <a class="hidden" href="/#features" ref="featuresRef" >ref</a>
             <a class="hidden" href="/#how-it-works" ref="howItWorksRef" >ref</a>
@@ -20,9 +20,17 @@
 <script>
 import Button from 'primevue/button';
 import { getOS } from '../helpers/checkOs';
+import openLink from '../helpers/openLink';
+import githubUrls from '../constants/githubUrls';
+
 export default {
     components: {
         Button
+    },
+    data() {
+      return {
+          openLink
+      }
     },
     methods: {
         navigateTo(ref) {
@@ -38,17 +46,17 @@ export default {
           if (os === 'mac') {
             return {
               label: 'Download for MacOs',
-              link: '/download?os=mac'
+              link: 'https://github.com/gustavofdasilva/retriever.io/releases/tag/v1.0.0/'
             }
           } else if (os === 'linux') {
             return {
               label: 'Download for Linux',
-              link: '/download?os=linux'
+              link: githubUrls.linux.deb
             }
           } else {
             return {
               label: 'Download for Windows',
-              link: '/download?os=windows'
+              link: githubUrls.windows.setup
             }
           }
 

@@ -14,7 +14,7 @@
             </div>
 
             <div class="bg-[var(--surface-950)] w-[100%] p-4 rounded mt-2">
-                <p class="mb-2">{{ tabValue.value }} version history</p>    
+                <p class="mb-2">{{ tabValue.value }} version history </p>    
                 <div class="versions-table-size table-header">
                     <span>Version</span>
                     <span>Released in</span>
@@ -25,7 +25,7 @@
 
                 <div class="versions-table-size table-body flex grid-" v-for="version in versions" :key="version.version">
                     <span class="font-bold">{{ version.version }}</span>
-                    <span>{{ version.date }}</span>
+                    <span>{{ formatDate(version.date) }}</span>
                     <div class="flex items-center justify-start">
                         <Tag :severity="version.status == 'Latest' ? 'success' : 'secondary'" :value="version.status" rounded></Tag>
                     </div>
@@ -64,8 +64,8 @@ import versions from '../constants/versions';
         versions: versions,
         tabOptions: [
                 { icon: 'pi pi-microsoft', value: 'Windows' },
-                { icon: 'pi pi-apple', value: 'MacOS' },
                 { icon: 'pi pi-desktop', value: 'Linux' },
+                // { icon: 'pi pi-apple', value: 'MacOS' },
             ],
           items: [
               {
@@ -84,6 +84,9 @@ import versions from '../constants/versions';
         }
       },
       methods: {
+        formatDate(date) { // 2025-03-20 to 20/03/2025
+            return date.split('-').reverse().join('/');
+        },
         openLink(url) {
           window.open(url,'_blank');
         }
