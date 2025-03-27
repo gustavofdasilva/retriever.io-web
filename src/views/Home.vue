@@ -150,19 +150,19 @@ import githubUrls from '../constants/githubUrls';
           const macosSubOption = {
             label: 'Download for MacOs',
             command: () => {
-                this.$router.push('/download?os=mac');
+              this.openLink('https://github.com/gustavofdasilva/retriever.io/releases/tag/v1.0.0/');
             }
           }
           const linuxSubOption = {
             label: 'Download for Linux',
             command: () => {
-              this.$router.push('/download?os=linux');
+              this.openLink(githubUrls.linux.deb);
             }
           }
           const windowsSubOption = {
             label: 'Download for Windows',
             command: () => {
-              this.$router.push('/download?os=windows');
+              this.openLink(githubUrls.windows.setup);
             }
           }
           const seeAllVersionsSubOption = {
